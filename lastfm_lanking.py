@@ -13,8 +13,8 @@ load_dotenv()
 API_KEY = os.getenv("API_KEY")
 USER_NAME = os.getenv("USER_NAME")
 NICK_NAME = os.getenv("NICK_NAME")
+LIMIT = os.getenv("LIMIT", "5")  # ランキングに表示する曲の数を指定（デフォルトは5）
 # ---- 定数の定義 ----
-LIMIT: int = 5  # 取得したい曲の数（ここでは5位まで）
 PERIOD: str = (
     ""  # ランキングの期間を指定する変数（例: "7day", "1month", "12month"など）
 )
