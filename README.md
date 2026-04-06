@@ -82,6 +82,9 @@ VISIBLE=public # 例: public, followers, specified
 export PYTHONUTF8=1
 
 # セットアップ
+sudo apt update
+sudo apt -y install jq curl python3-venv
+
 cd $INSTALL_DIR
 git clone https://github.com/letwir/lastfm_ranking.git
 python -m venv lastfm_ranking/.venv
