@@ -70,7 +70,8 @@ export PYTHONUTF8=1
 `python lastfm_lanking.py`
 
 
-実行すると標準出力に生成されたランキングテキストが表示されます。ログは `lastfm_ranking.log` に出力され、コンソールに出力が出ます。
+実行すると標準出力に生成されたランキングテキストが表示されます。  
+ログは `lastfm_ranking.log` に出力されます。
 
 ## Misskey使用例(bash)
 ```bash
@@ -119,7 +120,7 @@ $INSTALL_DIR/.venv/bin/python3 $INSTALL_DIR/lastfm_ranking/lastfm_ranking.py | j
 ## ログ
 
 - ログファイル: `lastfm_ranking.log`
-- デバッグやエラーはファイルおよび標準出力に出力されます。
+- デバッグやエラーはファイルに出力されます。
 
 ---
 

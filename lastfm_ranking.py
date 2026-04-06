@@ -23,8 +23,8 @@ KIKAN: str = ""  # ランキングの期間を表す文字列（例: "今週", "
 
 # ---- ログの設定 ----
 logging.basicConfig(
-    level=logging.INFO,  # ログレベルをWARNINGに設定（必要に応じてDEBUGなどに変更可能）
-    format="%(asctime)s - %(levelname)s - %(message)s",  # ログのフォーマット
+    level=logging.WARN,  # ログレベルをWARNINGに設定（必要に応じてDEBUGなどに変更可能）
+    format="%(asctime)s [%(levelname)s] %(message)s",  # ログのフォーマット
     handlers=[
         logging.FileHandler("lastfm_ranking.log"),  # ログをファイルに出力
         # logging.StreamHandler(sys.stdout),  # ログをコンソールにも出力
