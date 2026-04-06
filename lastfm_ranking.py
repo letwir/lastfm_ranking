@@ -14,6 +14,7 @@ API_KEY = os.getenv("API_KEY")
 USER_NAME = os.getenv("USER_NAME")
 NICK_NAME = os.getenv("NICK_NAME")
 LIMIT = os.getenv("LIMIT", "5")  # ランキングに表示する曲の数を指定（デフォルトは5）
+TAG = os.getenv("TAG", "5")  # ツイートに追加するタグ（例: "#lastfm"など）
 # ---- 定数の定義 ----
 PERIOD: str = (
     ""  # ランキングの期間を指定する変数（例: "7day", "1month", "12month"など）
@@ -49,7 +50,7 @@ def make_text(data: str, KIKAN: str, max_char_len: int) -> str:
     データからランキングを作成し、ツイート用の文字列を生成する関数。
     曲名とアーティスト名をmax_char_len文字に切り詰めることで、ツイートの文字数を調整する。
     """
-    pre_text = f"{NICK_NAME}の{KIKAN}ランキング #ラズラン #NowPlaying\n"
+    pre_text = f"{NICK_NAME}の{KIKAN}ランキング {TAG} #NowPlaying\n"
 
     result = data.get("toptracks", {}).get("track", [])
     for i in range(len(result)):
@@ -104,10 +105,10 @@ if __name__ == "__main__":
     day = today.day
     month = today.month
     logging.debug(f"Today: {month}/{day}")
-    if month == 12 and 23 < day < 31:  # 年末に過去12ヶ月分のランキング
+    if month == 12 and 22 < day <= 31:  # 年末に過去12ヶ月分のランキング
         PERIOD = "12month"
         KIKAN = "今年"
-    elif 1 < day < 8:  # 毎月1日に過去1ヶ月分のランキング
+    elif 22 < day <= 31:  # 毎月末に過去1ヶ月分のランキング
         PERIOD = "1month"
         KIKAN = "今月"
     else:

@@ -2,3 +2,5 @@
 .git/**
 .vscode/**
 *.log
+.venv/**
+.misskey
